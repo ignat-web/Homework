@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SVG поверх картинки</title>
+    <style>
+        .container {
+            position: relative;
+            width: 900px;
+            height: 900px;
+        }
+        .container img {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+        .container svg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 900px;
+            height: 900px;
+            pointer-events: none; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="1.png" alt="Картинка" width="900px" height="900px" />
+        <svg>
+            <path id="MotionPath" d="M200,200 q -100,100 100,130 q 150,150 400,350" stroke="black" fill="none" />
+            <rect x="0" y="0" width="30" height="15" stroke="#ff0000" fill="none">
+                <animateMotion begin="0s" dur="10s" repeatCount="indefinite" rotate="auto">
+                    <mpath xlink:href="#MotionPath" />
+                </animateMotion>
+            </rect>
+        </svg>
+    </div>
+</body>
+</html>
